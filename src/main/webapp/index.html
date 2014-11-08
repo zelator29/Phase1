@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <script src="js/libs/jquery/jquery.js"></script>
+    </head>
+    <body onload="loadUp()">
+        <form id="params" action="" method="get">
+            <p id="url" ></p>
+            <input class="submit" name="submit" value="Submit" type="submit">
+        </form>
+        
+        <div id="response" style="margin-top: 30px;"></div>
+        
+        <script>
+            var params = 'http://api2.allforgood.org/api/volopps?key=hoc0016-mobile&type=all&merge=0&output=json-hoc';
+            
+            function loadUp() {
+                $('#url').text(params);
+                var proxy = 'https://jsonp.nodejitsu.com/';
+                var url = proxy + '?url=' + params;
+                console.log(url);
+
+                $.get(url, function(data) {
+                    $('#response').text(JSON.stringify(data));
+                }); 
+            }
+            
+        </script>
+    </body>
+</html>
