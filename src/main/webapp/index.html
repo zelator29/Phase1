@@ -1,33 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Start Page</title>
+        <title>Pittsburgh Cares Mobile</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
-        <script src="js/libs/jquery/jquery.js"></script>
-    </head>
-    <body onload="loadUp()">
-        <form id="params" action="" method="get">
-            <p id="url" ></p>
-            <input class="submit" name="submit" value="Submit" type="submit">
-        </form>
-        
-        <div id="response" style="margin-top: 30px;"></div>
-        
-        <script>
-            var params = 'http://api2.allforgood.org/api/volopps?key=hoc0016-mobile&type=all&merge=0&output=json-hoc';
-            
-            function loadUp() {
-                $('#url').text(params);
-                var proxy = 'https://jsonp.nodejitsu.com/';
-                var url = proxy + '?url=' + params;
-                console.log(url);
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-                $.get(url, function(data) {
-                    $('#response').text(JSON.stringify(data));
-                }); 
-            }
-            
-        </script>
+        <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/pghcares.css" rel="stylesheet">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+        <script src="js/module.js" type="text/javascript"></script>
+        <script src="js/searchController.js" type="text/javascript"></script>
+        <script src="js/listController.js" type="text/javascript"></script>
+        <script src="js/detailsController.js" type="text/javascript"></script>
+    </head>
+    <body ng-app="PGHCaresPhase1">
+        <div ng-view></div>
     </body>
 </html>

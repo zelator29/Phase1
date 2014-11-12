@@ -1,0 +1,89 @@
+/* 
+    Created on : Nov 8, 2014, 11:10:24 PM
+    Author     : Mitch Goldstein, Pittsburgh Cares
+*/
+
+@font-face {
+    font-family: Rockwell;
+    src: url(ROCK.TTF);
+}
+
+.blue-font {
+    font-family: Rockwell;
+    color: #2481d8;
+    
+}
+
+.black-font {
+    font-family: Rockwell;
+    color: black;
+}
+
+input {
+    width: 100%;
+}
+
+input[type="text"] {
+    font-family: Rockwell;
+}
+
+div > img {
+    width: 40%;
+    height: 40%;
+    display: block;
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.top-buffer {
+    margin-top: 3px;
+}
+
+body {
+    /* background-image: url(pghcareslogo40.png); */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center bottom;
+    background-size: 70% 50%;
+}
+
+.form-control {
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.col-12, .col-6, .col-4 {
+    float: left;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-4 {
+    width: 33.33333333%;
+}
+
+.offset-4 {
+    margin-left: 33.33333333%;
+}
+
+.offset-3 {
+    margin-left: 25%;
+}
+
+
+/* Make an image unselectable */
+.unselectable {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none; 
+    -webkit-user-drag: none;
+}
