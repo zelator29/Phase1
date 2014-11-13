@@ -9,35 +9,40 @@
     <form name="frmSearch" id="frmSearch" method="GET">
         <div class="row top-buffer">
             <div class="inner col-12" id="search">
-                <input type="text" class="form-control typeahead" 
+                <input type="text" class="form-control">
+<!--                <input type="text" class="form-control typeahead" 
                         ng-model="terms"
-                        placeholder="Keyword or area of interest">
+                        placeholder="Keyword or area of interest">-->
             </div>
         </div>
         <div class="row top-buffer">
             <div class="inner col-6">
-                <input type="text" class="form-control" 
+                <input type="text" class="form-control">
+<!--                <input type="text" class="form-control" 
                         data-provide="datepicker"
                         ng-model="fromDate"
-                        id="from-date" placeholder="From this date">
+                        id="from-date" placeholder="From this date">-->
             </div>
             <div class="inner col-6">
-                <input type="text" class="form-control" 
+                <input type="text" class="form-control">
+<!--                <input type="text" class="form-control" 
                         data-provide="datepicker"
                         ng-model="toDate"
-                        id="to-date" placeholder="To this date">
+                        id="to-date" placeholder="To this date">-->
             </div>
         </div>
         <div class="row top-buffer">
             <div class="inner col-6">
-                 <input type="text" class="form-control" 
+                <input type="text" class="form-control">
+<!--                 <input type="text" class="form-control" 
                         ng-model="zip"
-                        id="zip-code" placeholder="Enter ZIP code">
+                        id="zip-code" placeholder="Enter ZIP code">-->
             </div>
             <div class="inner col-6">
-                <input type="text" class="form-control" 
+                <input type="text" class="form-control">
+<!--                <input type="text" class="form-control" 
                         ng-model="distance"
-                        id="distance" placeholder="Distance">
+                        id="distance" placeholder="Distance">-->
             </div>
         </div>
         <div class="row top-buffer"></div>
@@ -50,13 +55,14 @@
         </div>
     </form>
     
-    <div>
-        <img class="unselectable" src="css/pghcareslogo.png" alt="Pittsburgh Cares">
-        <h3 class="page-subtitle top-buffer">Pittsburgh Cares</h3>
-        <h4 class="address">3505 Butler St.</h4>
-        <h4 class="address">Pittsburgh, PA 15201</h4>
-        <h4 class="address">(412) 471-2114</h4>
-        <h5 class="copyright">&copy;2014 - All Rights Reserved</h5>
+    <div id="footer" style="text-align: center;">
+        <img class="unselectable" src="css/pghcareslogo.png" 
+                    style="height: 30%; width: 30%; margin-bottom: 20px;" 
+                    alt="Pittsburgh Cares">
+        <p class="black-font">3505 Butler St.</p>
+        <p class="black-font">Pittsburgh, PA 15201</p>
+        <p class="black-font">(412) 471-2114</p>
+        <p class="black-font">&copy;2014 - All Rights Reserved</p>
     </div>
 </div>
 
