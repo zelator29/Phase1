@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta name="viewport" content="width=device-width, initial-scale=1">
     <head>
         <title>Pittsburgh Cares Mobile</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <link href="js/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/pghcares.css" rel="stylesheet">
-
+        <link href="js/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="js/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
+        <link href="js/jqwidgets/styles/jqx.base.css" rel="stylesheet" type="text/css"/>
+        <link href="js/jqwidgets/styles/jqx.bootstrap.css" rel="stylesheet" type="text/css"/>
+        
         <script src="js/jquery/jquery-2.1.1.min.js"></script>
         <script src="js/angular/angular.min.js"></script>
         <script src="js/angular/angular-route.min.js"></script>
-        <script src="js/bootstrap/js/bootstrap.min.js"></script>
+        <script src="js/bootstrap/js/bootstrap.js"></script>
 
+        <script src="js/jqwidgets/jqxcore.js"></script>
+        <script src="js/jqwidgets/jqxdata.js"></script>
+        <script src="js/jqwidgets/jqxbuttons.js"></script>
+        <script src="js/jqwidgets/jqxscrollbar.js"></script>
+        <script src="js/jqwidgets/jqxlistbox.js"></script>
+        <script src="js/jqwidgets/jqxcombobox.js"></script>
+        <script src="js/jqwidgets/jqxtabs.js"></script>
+        <script src="js/jqwidgets/jqxangular.js"></script>
+
+        <link href="css/pghcares.css" rel="stylesheet">
         <script src="js/module.js" type="text/javascript"></script>
         <script src="js/searchController.js" type="text/javascript"></script>
         <script src="js/listController.js" type="text/javascript"></script>
         <script src="js/detailsController.js" type="text/javascript"></script>
     </head>
+    
     <body ng-app="PGHCaresPhase1">
         <div ng-view></div>
     </body>

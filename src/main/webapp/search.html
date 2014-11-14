@@ -1,29 +1,26 @@
 <div id="searchTab" class="container-fluid">
     <div class="text-center title-wrapper">
         <h2 class="blue-font">Pittsburgh Cares</h2>
-        <h4 class="black-font">Fill in the fields below and hit</h3>
-        <h4 class="black-font"> 'Search' to find opportunities</h3>
-        <div class='top-buffer'></div>
+        <h3 class="black-font"><small>Fill in the fields below and hit</small></h3>
+        <h3 class="black-font"><small>'Search' to find opportunities</small></h3>
     </div>
-
-    <form name="frmSearch" id="frmSearch" method="GET">
-        <div class="row top-buffer">
-            <div class="inner col-12" id="search">
-                <input type="text" class="form-control">
-<!--                <input type="text" class="form-control typeahead" 
-                        ng-model="terms"
-                        placeholder="Keyword or area of interest">-->
+ 
+    <form name="frmSearch" role="form" id="frmSearch" method="GET">
+        <div class="row">
+            <div class="col-xs-12" >
+                <div id="jqxComboBox">
+                </div>
             </div>
         </div>
         <div class="row top-buffer">
-            <div class="inner col-6">
+            <div class="col-xs-6">
                 <input type="text" class="form-control">
 <!--                <input type="text" class="form-control" 
                         data-provide="datepicker"
                         ng-model="fromDate"
                         id="from-date" placeholder="From this date">-->
             </div>
-            <div class="inner col-6">
+            <div class="col-xs-6">
                 <input type="text" class="form-control">
 <!--                <input type="text" class="form-control" 
                         data-provide="datepicker"
@@ -31,29 +28,31 @@
                         id="to-date" placeholder="To this date">-->
             </div>
         </div>
+        
         <div class="row top-buffer">
-            <div class="inner col-6">
+            <div class="col-xs-6">
                 <input type="text" class="form-control">
 <!--                 <input type="text" class="form-control" 
                         ng-model="zip"
                         id="zip-code" placeholder="Enter ZIP code">-->
             </div>
-            <div class="inner col-6">
+            <div class="col-xs-6">
                 <input type="text" class="form-control">
-<!--                <input type="text" class="form-control" 
+<!--               <input type="text" class="form-control" 
                         ng-model="distance"
                         id="distance" placeholder="Distance">-->
             </div>
         </div>
+      
         <div class="row top-buffer"></div>
         <div class="row top-buffer">
-            <div class="inner offset-4 col-4" style="margin-top: 30px;">
+            <div class="inner col-xs-offset-4 col-xs-4" style="margin-top: 20px;">
                  <button id="go"  class="btn btn-primary form-control" ng-click='search()' type="submit">
                      Search<span class="glyphicon glyphicon-search" style="margin-left: 12px;"></span>
                  </button>
             </div>
         </div>
-    </form>
+     </form> 
     
     <div id="footer" style="text-align: center;">
         <img class="unselectable" src="css/pghcareslogo.png" 
@@ -65,5 +64,26 @@
         <p class="black-font">&copy;2014 - All Rights Reserved</p>
     </div>
 </div>
+<script type="text/javascript">
+    $.jqx.theme = 'bootstrap';
+    $(document).ready(function() {
+        var keywords = [
+            'Adult Education', 'Animals', 'Arts & Culture',
+            'Children & Youth Education', 'Civic & Community',
+            'Disaster & Emergency Services', 'Environment',
+            'Faith-Based Service', 'Health & Wellness', 'Family Services',
+            'Hunger & Homelessness', 'International Service',
+            'Internships & Employment', 'Justice & Legal Services',
+            'Immigrant & Refugee Services', 'Schools', 'Senior Services',
+            'Sports & Recreation', 'Technology',
+            'Veterans & Military Families'];
+            // Create a jqxComboBox
+            $("#jqxComboBox").jqxComboBox({selectedIndex: -1, 
+                    source: keywords, width: '100%', 
+                    height: '35px', autoComplete: true });
+            $("#jqxComboBox").jqxComboBox({placeHolder: "Select a keyword" });
+    });
+</script>
+
 
 
