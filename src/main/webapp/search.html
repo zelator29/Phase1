@@ -1,52 +1,36 @@
 <div id="searchTab" class="container-fluid">
     <div class="text-center title-wrapper">
         <h2 class="blue-font">Pittsburgh Cares</h2>
-        <h3 class="black-font"><small>Fill in the fields below and hit</small></h3>
-        <h3 class="black-font"><small>'Search' to find opportunities</small></h3>
+        <h4 class="black-font"><small>Fill in the fields below and hit</small></h4>
+        <h4 class="black-font"><small>'Search' to find opportunities</small></h4>
     </div>
  
     <form name="frmSearch" role="form" id="frmSearch" method="GET">
-        <div class="row">
-            <div class="col-xs-12" >
-                <div id="jqxComboBox">
-                </div>
-            </div>
+        <div class="row form-control col-xs-12" id="termsCombo">
+
+<!--        <div class="row top-buffer col-xs-12">
+            <input type="text" class="form-control" placeholder="Enter a search term">
+            </div>-->
         </div>
-        <div class="row top-buffer">
-            <div class="col-xs-6">
-                <input type="text" class="form-control">
-<!--                <input type="text" class="form-control" 
-                        data-provide="datepicker"
-                        ng-model="fromDate"
-                        id="from-date" placeholder="From this date">-->
-            </div>
-            <div class="col-xs-6">
-                <input type="text" class="form-control">
-<!--                <input type="text" class="form-control" 
-                        data-provide="datepicker"
-                        ng-model="toDate"
-                        id="to-date" placeholder="To this date">-->
-            </div>
+        <div class="row top-buffer col-xs-12">
+            <input type="text" class="form-control" placeholder="From this date">
         </div>
         
-        <div class="row top-buffer">
-            <div class="col-xs-6">
-                <input type="text" class="form-control">
-<!--                 <input type="text" class="form-control" 
-                        ng-model="zip"
-                        id="zip-code" placeholder="Enter ZIP code">-->
-            </div>
-            <div class="col-xs-6">
-                <input type="text" class="form-control">
-<!--               <input type="text" class="form-control" 
-                        ng-model="distance"
-                        id="distance" placeholder="Distance">-->
-            </div>
+        <div class="row top-buffer col-xs-12">
+            <input type="text" class="form-control" placeholder="To this date">
+        </div>
+        
+        <div class="row top-buffer col-xs-12">
+            <input type="text" class="form-control" placeholder="Enter ZIP code">
+        </div>
+        
+        <div class="row top-buffer col-xs-12">
+            <input type="text" class="form-control"  placeholder="Distance">
         </div>
       
-        <div class="row top-buffer"></div>
         <div class="row top-buffer">
-            <div class="inner col-xs-offset-4 col-xs-4" style="margin-top: 20px;">
+            <div class="inner col-xs-offset-4 col-xs-4" 
+                        style="margin-top: 5px; margin-bottom: 5px;">
                  <button id="go"  class="btn btn-primary form-control" ng-click='search()' type="submit">
                      Search<span class="glyphicon glyphicon-search" style="margin-left: 12px;"></span>
                  </button>
@@ -56,7 +40,7 @@
     
     <div id="footer" style="text-align: center;">
         <img class="unselectable" src="css/pghcareslogo.png" 
-                    style="height: 30%; width: 30%; margin-bottom: 20px;" 
+                    style="height: 15%; width: 20%; margin-bottom: 5px;" 
                     alt="Pittsburgh Cares">
         <p class="black-font">3505 Butler St.</p>
         <p class="black-font">Pittsburgh, PA 15201</p>
@@ -65,8 +49,10 @@
     </div>
 </div>
 <script type="text/javascript">
-    $.jqx.theme = 'bootstrap';
+    
     $(document).ready(function() {
+        $.jqx.theme = 'bootstrap';
+        
         var keywords = [
             'Adult Education', 'Animals', 'Arts & Culture',
             'Children & Youth Education', 'Civic & Community',
@@ -77,11 +63,11 @@
             'Immigrant & Refugee Services', 'Schools', 'Senior Services',
             'Sports & Recreation', 'Technology',
             'Veterans & Military Families'];
-            // Create a jqxComboBox
-            $("#jqxComboBox").jqxComboBox({selectedIndex: -1, 
-                    source: keywords, width: '100%', 
-                    height: '35px', autoComplete: true });
-            $("#jqxComboBox").jqxComboBox({placeHolder: "Select a keyword" });
+
+        $("#termsCombo").jqxComboBox({selectedIndex: -1, 
+                source: keywords, width: '97%', 
+                height: '25px', autoComplete: true
+        });
     });
 </script>
 
