@@ -6,31 +6,34 @@
     </div>
  
     <form name="frmSearch" role="form" id="frmSearch" method="GET">
-        <div class="row form-control col-xs-12" id="termsCombo">
+        <div class="row col-xs-12">
+            <jqx-combo-box ng-model="selectedTerm" class="form-control"
+                        jqx-ng-model jqx-settings="termSettings"></jqx-combo-box>
+        </div>
 
-<!--        <div class="row top-buffer col-xs-12">
-            <input type="text" class="form-control" placeholder="Enter a search term">
-            </div>-->
+        <div class="row col-xs-12 top-buffer">
+            <jqx-date-time-input ng-model="fromDate" class="form-control"
+                        jqx-settings="dateInputSettings"></jqx-date-time-input>
         </div>
+        
+        <div class="row col-xs-12 top-buffer">
+            <jqx-date-time-input ng-model="toDate" class="form-control"
+                        jqx-settings="dateInputSettings"></jqx-date-time-input>
+        </div>
+
         <div class="row top-buffer col-xs-12">
-            <input type="text" class="form-control" placeholder="From this date">
+            <input type="text" class="form-control" ng-model='zipCode' 
+                                    placeholder="Enter ZIP code">
         </div>
         
         <div class="row top-buffer col-xs-12">
-            <input type="text" class="form-control" placeholder="To this date">
-        </div>
-        
-        <div class="row top-buffer col-xs-12">
-            <input type="text" class="form-control" placeholder="Enter ZIP code">
-        </div>
-        
-        <div class="row top-buffer col-xs-12">
-            <input type="text" class="form-control"  placeholder="Distance">
+            <jqx-combo-box ng-model="selectedDistance" class="form-control"
+                        jqx-ng-model jqx-settings="distanceSettings"></jqx-combo-box>
         </div>
       
         <div class="row top-buffer">
             <div class="inner col-xs-offset-4 col-xs-4" 
-                        style="margin-top: 5px; margin-bottom: 5px;">
+                        style="margin-top: 15px; margin-bottom: 25px;">
                  <button id="go"  class="btn btn-primary form-control" ng-click='search()' type="submit">
                      Search<span class="glyphicon glyphicon-search" style="margin-left: 12px;"></span>
                  </button>
@@ -40,7 +43,8 @@
     
     <div id="footer" style="text-align: center;">
         <img class="unselectable" src="css/pghcareslogo.png" 
-                    style="height: 15%; width: 20%; margin-bottom: 5px;" 
+                    style="height: 25%; width: 25%; 
+                    margin-top: 5px; margin-bottom: 5px;" 
                     alt="Pittsburgh Cares">
         <p class="black-font">3505 Butler St.</p>
         <p class="black-font">Pittsburgh, PA 15201</p>
@@ -48,28 +52,5 @@
         <p class="black-font">&copy;2014 - All Rights Reserved</p>
     </div>
 </div>
-<script type="text/javascript">
-    
-    $(document).ready(function() {
-        $.jqx.theme = 'bootstrap';
-        
-        var keywords = [
-            'Adult Education', 'Animals', 'Arts & Culture',
-            'Children & Youth Education', 'Civic & Community',
-            'Disaster & Emergency Services', 'Environment',
-            'Faith-Based Service', 'Health & Wellness', 'Family Services',
-            'Hunger & Homelessness', 'International Service',
-            'Internships & Employment', 'Justice & Legal Services',
-            'Immigrant & Refugee Services', 'Schools', 'Senior Services',
-            'Sports & Recreation', 'Technology',
-            'Veterans & Military Families'];
-
-        $("#termsCombo").jqxComboBox({selectedIndex: -1, 
-                source: keywords, width: '97%', 
-                height: '25px', autoComplete: true
-        });
-    });
-</script>
-
 
 

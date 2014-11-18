@@ -1,4 +1,4 @@
-var module = angular.module('PGHCaresPhase1', ['ngRoute']);
+var module = angular.module('PGHCaresPhase1', ['ngRoute', 'jqwidgets']);
 
 module.config(['$routeProvider', function($routeProvider) {
     $routeProvider
