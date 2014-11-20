@@ -55,11 +55,12 @@ module.controller('searchController', function($scope, $location) {
         source: $scope.distances, 
         itemHeight: 20, height: 20, 
         width: '98%',
-        selectedIndex: -1
+        selectedIndex: 0
     };
     
     $scope.go = function () {
-        $location.path("#/list");
+        $location.path("/list?key=hoc0016-mobile&type=all&merge=0&output=json-hoc");
+        $location.replace();
     };
 
 });

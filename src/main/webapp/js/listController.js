@@ -1,4 +1,11 @@
-module.controller('listController', function($scope) {
+module.controller('listController', function($scope, $routeParams) {
+    console.log('in listController');
+    
+    $(document).ready(function() {
+        console.log($routeParams);
+        //'key=hoc0016-mobile&type=all&merge=0&output=json-hoc'
+    });
+    
     $scope.listBoxSettings =
     {
         theme: 'bootstrap',

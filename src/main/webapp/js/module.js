@@ -6,7 +6,7 @@ module.config(['$routeProvider', function($routeProvider) {
             templateUrl: "search.html",
             controller: 'searchController'
         })
-        .when('/list', {
+        .when('/list?:params', {
             templateUrl: "list.html",
             controller: 'listController'
         })
@@ -20,3 +20,13 @@ module.config(['$routeProvider', function($routeProvider) {
         .otherwise({redirectTo: '/'});
 }]);
 
+module.run(function($rootScope) {
+
+    // register listener to watch route changes
+    $rootScope.$on( "$routeChangeStart", 
+            function(event, next, current) {
+                console.log(event);
+                console.log(next);
+                console.log(current);
+            });
+ });
