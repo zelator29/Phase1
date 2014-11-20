@@ -7,7 +7,7 @@ module.config(['$routeProvider', function($routeProvider) {
             controller: 'searchController'
         })
         .when('/list', {
-            template: "<h1 class='form-control'>{{message}}<h1>",
+            templateUrl: "list.html",
             controller: 'listController'
         })
         .when('/details', {

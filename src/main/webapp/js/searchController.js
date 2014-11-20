@@ -10,7 +10,7 @@ function loadUp() {
     }); 
 }
 
-module.controller('searchController', function($scope) {
+module.controller('searchController', function($scope, $location) {
     $scope.terms = [
             'Adult Education', 'Animals', 'Arts & Culture',
             'Children & Youth Education', 'Civic & Community',
@@ -57,6 +57,11 @@ module.controller('searchController', function($scope) {
         width: '98%',
         selectedIndex: -1
     };
+    
+    $scope.go = function () {
+        $location.path("#/list");
+    };
+
 });
 
 
