@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <div class="container-fluid">
-    <form name="frmList" id="frmList" method="GET" style="height: 90%;">
-        <div id='resultsList' class='fill' style="height: 90%;">
-            <jqx-list-box id="jqxListBox" ng-model="selectedItem" jqx-settings="listBoxSettings"></jqx-list-box>
-        </div>
-       <div class="row top-buffer">
+    <p><b>Selected Item: </b>{{selectedTitle}}</p>
+    <div id='resultsList' class='fill' style="height: 90%;">
+        <jqx-list-box id="jqxListBox" ng-model="selectedTitle" jqx-settings="listBoxSettings"></jqx-list-box>
+    </div>
+        
+        
+<!--       
+        <div class="row top-buffer">
             <div class="inner col-6" style="margin-top: 10px; height: 10%;">
                 <button id="return"  class="btn btn-warning form-control" type="submit" ng-click='home()'>
                 <span class="glyphicon glyphicon-arrow-left"></span> Back to Search
@@ -16,5 +19,5 @@
                 </button>
             </div>
         </div>
-    </form>
+-->
 </div>

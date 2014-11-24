@@ -1,23 +1,38 @@
 module.controller('listController', function($scope, $routeParams) {
     console.log('in listController');
-    
-    $(document).ready(function() {
-        console.log($routeParams);
-        //'key=hoc0016-mobile&type=all&merge=0&output=json-hoc'
-    });
-    
+    $scope.titles = [];
+    $scope.selectedTitle = $scope.titles[0];
+
+    var allForGood = 'http://api2.allforgood.org/api/volopps';
+    var proxy = 'https://jsonp.nodejitsu.com/';
+    var url = proxy + '?url=' + allForGood + $routeParams.params;
+
+    $('#jqxListBox').jqxListBox();
+
+    $.get(url, function(data) {
+        $scope.data = data;
+
+        for (var i = 0; i < $scope.data.items.length; i++) {
+            $scope.titles.push($scope.data.items[i].title);
+        }
+
+        $('#jqxListBox').jqxListBox({source: $scope.titles,
+            selectedIndex: 0 });
+    }); 
+
     $scope.listBoxSettings =
     {
         theme: 'bootstrap',
-        width: '100%',
-        height: '100%',
-        itemHeight: -1,
+        width: '300',
+        height: '300',
+        itemHeight: 35,
         source: $scope.titles
     };
 
-    $('#jqxListBox').jqxListBox({renderer: function(index, label, value) {
-        return $scope.renderer(index, label, value);
-    }});
+//            {renderer: function(index, label, value) {
+//                return $scope.renderer(index, label, value);
+//            }}
+
 
     $scope.renderer = function(index, label, value) {
         var item = $scope.data.items[index];
@@ -51,6 +66,7 @@ module.controller('listController', function($scope, $routeParams) {
 //        $('#drillin').removeAttr("disabled", "disabled");
 //    });
 
+/*        
     // When an opportunity is selected, update
     // the opportunity in the model
     $('#jqxListBox').on('change', function (event) {
@@ -60,6 +76,7 @@ module.controller('listController', function($scope, $routeParams) {
             $scope.opportunity = $scope.data.items[index];
         }
     });
+*/    
 });
 
 
