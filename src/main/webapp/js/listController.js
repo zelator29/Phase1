@@ -3,12 +3,19 @@ module.controller('listController', function($scope, $routeParams) {
     $scope.titles = [];
     $scope.selectedTitle = $scope.titles[0];
 
-    var allForGood = 'http://api2.allforgood.org/api/volopps';
-    var proxy = 'https://jsonp.nodejitsu.com/';
-    var url = proxy + '?url=' + allForGood + $routeParams.params;
+//    var allForGood = 'http://api2.allforgood.org/api/volopps';
+//    var proxy = 'https://jsonp.nodejitsu.com/';
+//    var url = proxy + '?url=' + allForGood + $routeParams.params;
+
+    $scope.data = testdata;
+      
+    for (var i = 0; i < $scope.data.items.length; i++) {
+        $scope.titles.push($scope.data.items[i].title);
+    }
 
     $('#jqxListBox').jqxListBox();
 
+    /*
     $.get(url, function(data) {
         $scope.data = data;
 
@@ -18,55 +25,63 @@ module.controller('listController', function($scope, $routeParams) {
 
         $('#jqxListBox').jqxListBox({source: $scope.titles,
             selectedIndex: 0 });
-    }); 
+    });
+    */
 
     $scope.listBoxSettings =
     {
         theme: 'bootstrap',
-        width: '300',
-        height: '300',
-        itemHeight: 35,
-        source: $scope.titles
+        width: '100%',
+        height: '100%',
+        itemHeight: '-1',
+        source: $scope.titles,
+        renderer: function(index, label, value) {
+            return $scope.renderer(index, label, value);
+        }
     };
-
-//            {renderer: function(index, label, value) {
-//                return $scope.renderer(index, label, value);
-//            }}
-
 
     $scope.renderer = function(index, label, value) {
         var item = $scope.data.items[index];
         var startDate = moment(item.startDate);
         var endDate = moment(item.endDate);
+        
+        var cell = 
+            '<div class="render-cell">' +
+            '<h4 class="blue-font" style="word-break: word; white-space: normal;">' + 
+                item.title + '</h4>' +
+            '<p class="black-font">'+ startDate.format("MMMM Do, YYYY") + ' - ' +
+                        endDate.format("MMMM Do, YYYY") + '</p>' +
+            '<p class="black-font">' +  item.city + ', ' + 
+                    item.region.toUpperCase() + ' ' + item.postalCode + 
+            '</div>';
+        return cell;
+  
+  /*
         var table = 
-            '<table style="width: 280px;" class="renderedRow">' + 
-                '<tr>' +
-                    '<td rowspan="4" style="width: 30px;">' + 
+            '<table class="renderedRow">' + 
+                '<tr class="red-font">' +
+                    '<td rowspan="4" style="width: 20px;">' + 
                     '<span class="glyphicon glyphicon-heart" style="margin-left: 4px;"></span>' +
                     '</td>' +
-                    '<td rowspan="2" style="white-space: normal;">' + item.title + '</td>' +
+                    '<td rowspan="2" class="blue-font" style="white-space: normal; word-wrap: break-word;"><b>' + item.title + '</b></td>' +
                 '</tr><tr></tr>' +
                 '<tr>'+
-                    '<td rowspan="1">' + 
-                        startDate.format("MMMM Do YYYY") + ' - ' +
-                        endDate.format("MMMM Do YYYY") +
+                    '<td rowspan="1" class="black-font">' + 
+                        startDate.format("MMMM Do, YYYY") + ' - ' +
+                        endDate.format("MMMM Do, YYYY") +
                     '</td>' +
                 '</tr>' + 
                 '<tr>' + 
-                    '<td rowspan="1">' + 
+                    '<td rowspan="1" class="black-font">' + 
                         item.city + ', ' + item.region.toUpperCase() +
                         ' ' + item.postalCode + 
                     '</td>' +
                 '</tr>' + 
             '</table>';
         return table;                    
-    };
+*/
+        };
 
-//    $('#jqxListBox').on('select', function () {
-//        $('#drillin').removeAttr("disabled", "disabled");
-//    });
-
-/*        
     // When an opportunity is selected, update
     // the opportunity in the model
     $('#jqxListBox').on('change', function (event) {
@@ -76,7 +91,6 @@ module.controller('listController', function($scope, $routeParams) {
             $scope.opportunity = $scope.data.items[index];
         }
     });
-*/    
 });
 
 

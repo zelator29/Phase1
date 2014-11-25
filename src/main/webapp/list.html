@@ -1,23 +1,11 @@
 <!DOCTYPE html>
-<div class="container-fluid">
-    <p><b>Selected Item: </b>{{selectedTitle}}</p>
-    <div id='resultsList' class='fill' style="height: 90%;">
-        <jqx-list-box id="jqxListBox" ng-model="selectedTitle" jqx-settings="listBoxSettings"></jqx-list-box>
+<div id="listTab" class="container fillpad" ng-hide="searchActive" style="width: 100%; height: 100%; min-height: 100%;">
+    <div class='fill' style='min-height: 100%;'>
+        <jqx-list-box class='fill' id="jqxListBox" ng-model="selectedTitle" jqx-settings="listBoxSettings"></jqx-list-box>
     </div>
-        
-        
-<!--       
-        <div class="row top-buffer">
-            <div class="inner col-6" style="margin-top: 10px; height: 10%;">
-                <button id="return"  class="btn btn-warning form-control" type="submit" ng-click='home()'>
-                <span class="glyphicon glyphicon-arrow-left"></span> Back to Search
-                </button>
-            </div>
-            <div class="inner col-6" style="margin-top: 10px; height: 10%;">
-                <button id="drillin"  class="btn btn-primary form-control" type="submit" ng-click="drill()" disabled>
-                <span class="glyphicon glyphicon-info-sign"></span> More Info
-                </button>
-            </div>
-        </div>
--->
+    <div class="inner col-6" style="margin-top: 10px; height: 10%;">
+        <button id="return"  class="btn btn-warning form-control" type="submit" ng-click='home()'>
+        <span class="glyphicon glyphicon-arrow-left"></span> Back to Search
+        </button>
+    </div>
 </div>

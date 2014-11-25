@@ -49,7 +49,7 @@ module.controller('searchController', function($scope, $location) {
     };
     
     $scope.go = function () {
-        $location.path("/list?key=hoc0016-mobile&type=all&merge=0&output=json-hoc");
+        $location.path("/list?key=hoc0016-mobile&type=all&merge=0&output=json-hoc&vol_loc=15222&vol_dist=5");
         $location.replace();
     };
 
