@@ -3,19 +3,13 @@ module.controller('listController', function($scope, $routeParams) {
     $scope.titles = [];
     $scope.selectedTitle = $scope.titles[0];
 
-//    var allForGood = 'http://api2.allforgood.org/api/volopps';
-//    var proxy = 'https://jsonp.nodejitsu.com/';
-//    var url = proxy + '?url=' + allForGood + $routeParams.params;
+    var allForGood = 'http://api2.allforgood.org/api/volopps';
+    var url = allForGood + $routeParams.params;
 
-    $scope.data = testdata;
+    //$scope.data = testdata;
       
-    for (var i = 0; i < $scope.data.items.length; i++) {
-        $scope.titles.push($scope.data.items[i].title);
-    }
-
     $('#jqxListBox').jqxListBox();
 
-    /*
     $.get(url, function(data) {
         $scope.data = data;
 
@@ -26,7 +20,6 @@ module.controller('listController', function($scope, $routeParams) {
         $('#jqxListBox').jqxListBox({source: $scope.titles,
             selectedIndex: 0 });
     });
-    */
 
     $scope.listBoxSettings =
     {

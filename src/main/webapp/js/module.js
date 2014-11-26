@@ -10,23 +10,8 @@ module.config(['$routeProvider', function($routeProvider) {
             templateUrl: "list.html",
             controller: 'listController'
         })
-        .when('/details', {
-            template: "<h1 class='form-control'>{{message}}<h1>",
-            controller: 'detailsController'
-        })            
         .when('/splash', {
             templateUrl: "splash.html"
         })
         .otherwise({redirectTo: '/'});
 }]);
-
-module.run(function($rootScope) {
-
-    // register listener to watch route changes
-    $rootScope.$on( "$routeChangeStart", 
-            function(event, next, current) {
-                console.log(event);
-                console.log(next);
-                console.log(current);
-            });
- });

@@ -18,6 +18,11 @@
     color: black;
 }
 
+a.ng-binding {
+    font-family: Rockwell;
+    color: black;
+}
+
 .red-font {
     font-family: Rockwell;
     color: red;
@@ -102,4 +107,20 @@ html, body {
 .render-cell > h4 {
     margin-top: 10px;
     margin-bottom: 0;
+}
+
+input::-webkit-input-placeholder {
+   color: #2481d8;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+   color: #2481d8;  
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+   color: #2481d8;  
+}
+
+input:-ms-input-placeholder {  
+   color: #2481d8;  
 }
