@@ -6,13 +6,15 @@
         <h4 class="black-font"><small>'Search' to find opportunities</small></h4>
     </div>
  
-    <div class="row col-xs-12">
-        <div class="input-group input-group-btn">
+    <div class="row">
+        <div class="input-group">
             <input type="text" data-ng-model="selectedCategory" class="form-control" 
                 placeholder="Select a Category" name="categoryField" id="categoryField" />
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                <span class="glyphicon glyphicon-search"></span>
-            </button>
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </span>
             <ul role="menu" class="dropdown-menu dropdown-menu-right">
               <li ng-repeat="category in categories" ng-click="selectCategory(category)">
                   <a href="">{{category}}</a>

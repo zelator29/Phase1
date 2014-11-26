@@ -40,11 +40,11 @@ module.controller('listController', function($scope, $routeParams) {
         
         var cell = 
             '<div class="render-cell">' +
-            '<h4 class="blue-font" style="word-break: word; white-space: normal;">' + 
+            '<h4 class="rockwell" style="word-break: word; white-space: normal;">' + 
                 item.title + '</h4>' +
-            '<p class="black-font">'+ startDate.format("MMMM Do, YYYY") + ' - ' +
+            '<p class="rockwell">'+ startDate.format("MMMM Do, YYYY") + ' - ' +
                         endDate.format("MMMM Do, YYYY") + '</p>' +
-            '<p class="black-font">' +  item.city + ', ' + 
+            '<p class="rockwell">' +  item.city + ', ' + 
                     item.region.toUpperCase() + ' ' + item.postalCode + 
             '</div>';
         return cell;

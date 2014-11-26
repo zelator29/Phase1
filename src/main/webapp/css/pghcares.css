@@ -18,6 +18,14 @@
     color: black;
 }
 
+.jqx-listitem-state-selected .black-font {
+    color: white;
+}
+
+.rockwell {
+    font-family: Rockwell;
+}
+
 a.ng-binding {
     font-family: Rockwell;
     color: black;
