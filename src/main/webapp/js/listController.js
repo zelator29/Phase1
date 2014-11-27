@@ -1,7 +1,7 @@
 module.controller('listController', function($scope, $routeParams) {
     console.log('in listController');
     $scope.titles = [];
-    $scope.selectedTitle = $scope.titles[0];
+    $scope.selectedTitle = null;
 
     var allForGood = 'http://api2.allforgood.org/api/volopps';
     var url = allForGood + $routeParams.params;
@@ -28,6 +28,7 @@ module.controller('listController', function($scope, $routeParams) {
         height: '100%',
         itemHeight: '-1',
         source: $scope.titles,
+        selectedIndex: '-1',
         renderer: function(index, label, value) {
             return $scope.renderer(index, label, value);
         }
@@ -48,40 +49,19 @@ module.controller('listController', function($scope, $routeParams) {
                     item.region.toUpperCase() + ' ' + item.postalCode + 
             '</div>';
         return cell;
-  
-  /*
-        var table = 
-            '<table class="renderedRow">' + 
-                '<tr class="red-font">' +
-                    '<td rowspan="4" style="width: 20px;">' + 
-                    '<span class="glyphicon glyphicon-heart" style="margin-left: 4px;"></span>' +
-                    '</td>' +
-                    '<td rowspan="2" class="blue-font" style="white-space: normal; word-wrap: break-word;"><b>' + item.title + '</b></td>' +
-                '</tr><tr></tr>' +
-                '<tr>'+
-                    '<td rowspan="1" class="black-font">' + 
-                        startDate.format("MMMM Do, YYYY") + ' - ' +
-                        endDate.format("MMMM Do, YYYY") +
-                    '</td>' +
-                '</tr>' + 
-                '<tr>' + 
-                    '<td rowspan="1" class="black-font">' + 
-                        item.city + ', ' + item.region.toUpperCase() +
-                        ' ' + item.postalCode + 
-                    '</td>' +
-                '</tr>' + 
-            '</table>';
-        return table;                    
-*/
-        };
+    };
 
     // When an opportunity is selected, update
     // the opportunity in the model
     $('#jqxListBox').on('change', function (event) {
+        if (event.args.type === 'none')
+            return;
+        
         var args = event.args;
         if (args) {
             var index = args.index;
             $scope.opportunity = $scope.data.items[index];
+            console.log($scope.opportunity);
         }
     });
 });
