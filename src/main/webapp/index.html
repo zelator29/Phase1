@@ -37,6 +37,17 @@
     </head>
     
     <body ng-app="PGHCaresPhase1">
-        <div ng-view class='fill'></div>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container-fluid" ng-controller="mainController">
+                <div class="navbar-header"><h1>
+                  <a class="navbar-brand blue-font" href="#">Pittsburgh Cares</a>
+                </h1></div>
+                <div ng-show='showButton' style='position: absolute; right: 10px; top: 8px'>
+                    <button class='btn btn-lg btn-default' ng-click="onBack()">Back</button>
+                </div>
+            </div>
+            
+        </nav>
+        <div ng-view class='fill' style=''></div>
     </body>
 </html>

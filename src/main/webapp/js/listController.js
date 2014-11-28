@@ -1,5 +1,4 @@
 module.controller('listController', function($scope, $routeParams) {
-    console.log('in listController');
     $scope.titles = [];
     $scope.selectedTitle = null;
 

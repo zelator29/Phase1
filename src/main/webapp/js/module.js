@@ -15,3 +15,24 @@ module.config(['$routeProvider', function($routeProvider) {
         })
         .otherwise({redirectTo: '/'});
 }]);
+
+module.controller('mainController', function($scope, $rootScope, $location){
+    $rootScope.showButton = false;
+    $rootScope.currentController = '';
+    
+    $scope.$on('$routeChangeSuccess', function(event, next, current) { 
+        $rootScope.currentController = next.$$route.controller;
+        if ($rootScope.currentController === 'searchController') {
+            $rootScope.showButton = false;
+        }
+        if ($rootScope.currentController === 'listController') {
+            $rootScope.showButton = true;
+        }
+        console.log();
+    });
+    
+    $rootScope.onBack = function() {
+        $location.path('/');
+        $location.replace();
+   };
+});

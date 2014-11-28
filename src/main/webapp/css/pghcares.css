@@ -22,6 +22,10 @@
     color: white;
 }
 
+.btn {
+    font-family: Rockwell;
+}
+
 .rockwell {
     font-family: Rockwell;
 }
@@ -35,6 +39,7 @@ a.ng-binding {
     font-family: Rockwell;
     color: red;
 }
+
 input {
     width: 100%;
 }
@@ -85,10 +90,6 @@ body {
     -webkit-user-drag: none;
 }
 
-jqx-combobox-input {
-    font-family: Rockwell;
-}
-
 #footer > p {
     margin: 0;
 }
@@ -107,6 +108,10 @@ html, body {
     height:100%
 }
 
+body { 
+    padding-top: 50px; 
+}
+
 .render-cell > p {
     margin-top: 0;
     margin-bottom: 0;
@@ -117,18 +122,13 @@ html, body {
     margin-bottom: 0;
 }
 
-input::-webkit-input-placeholder {
-   color: #2481d8;
+#go {
+    padding: 0;
 }
 
-input:-moz-placeholder { /* Firefox 18- */
-   color: #2481d8;  
+
+a.navbar-brand, a.navbar-default {
+    font-size: 22px;
+    color: #2481d8;
 }
 
-input::-moz-placeholder {  /* Firefox 19+ */
-   color: #2481d8;  
-}
-
-input:-ms-input-placeholder {  
-   color: #2481d8;  
-}
