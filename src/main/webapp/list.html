@@ -1,9 +1,36 @@
 <!DOCTYPE html>
-<div id="listTab" class="container fillpad" ng-show="!searchActive">
-    <div class='fill' style='min-height: 100%;'>
-        <jqx-list-box class='fill' id="jqxListBox" ng-model="selectedTitle" jqx-settings="listBoxSettings"></jqx-list-box>
+
+<div id="listTab" class="container fillpad " ng-hide="detailActive">
+    <div class='list-group'>
+        <div ng-repeat='opp in opportunities' ng-click='listClick($event, opp)' class='list-group-item'>
+            <h4 class="blue-font list-group-item-heading"><strong>{{opp.title}}</strong></h4>
+            <p class="black-font list-group-item-text"
+               ><strong>{{formatDate(opp.startDate)}}-{{formatDate(opp.endDate)}}</strong></p>
+            <p class="black-font list-group-item-text"
+               >{{opp.city + ', ' + 
+                    opp.region.toUpperCase() + ' ' + opp.postalCode}}</p>
+        </div>
     </div>
 </div>
-<div id="detailTab" class="container fillpad" ng-hide="!searchActive">
-details
-</div>
+
+<div id="detailTab" class="container fillpad list-group" ng-show="detailActive">
+    <div class='list-group' style='margin-bottom: 5px'>
+        <div class='list-group-item'>
+            <h3 class='list-group-item-heading'>{{selected.title}}</h3>
+            <p class='list-group-item-text'>{{selected.description}}</p>
+        </div>
+    </div>
+    
+    <div class="results list-group-item">{{selected.startDate}}</div>
+    <div class="results list-group-item">{{selected.endDate}}</div>
+    <div class="results list-group-item">{{selected.sponsoringOrganizationName}}</div>
+    <div class="results list-group-item">{{selected.sponsoringOrganizationUrl}}</div>
+    <div class="results list-group-item">{{selected.location_name}}</div>
+    <!--
+        latlong: "40.4974532,-80.0603445"
+        skills[] skilledVolunteer
+        categoryTags
+        minAge
+        availabilityDays
+    -->
+ </div>

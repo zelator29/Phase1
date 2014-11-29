@@ -1,4 +1,4 @@
-var module = angular.module('PGHCaresPhase1', ['ngRoute', 'jqwidgets']);
+var module = angular.module('PGHCaresPhase1', ['ngRoute']);
 
 module.config(['$routeProvider', function($routeProvider) {
     $routeProvider
@@ -19,6 +19,7 @@ module.config(['$routeProvider', function($routeProvider) {
 module.controller('mainController', function($scope, $rootScope, $location){
     $rootScope.showButton = false;
     $rootScope.currentController = '';
+    $rootScope.detailActive = false;
     
     $scope.$on('$routeChangeSuccess', function(event, next, current) { 
         $rootScope.currentController = next.$$route.controller;
@@ -28,10 +29,16 @@ module.controller('mainController', function($scope, $rootScope, $location){
         if ($rootScope.currentController === 'listController') {
             $rootScope.showButton = true;
         }
-        console.log();
     });
     
     $rootScope.onBack = function() {
+        // If detail is showing, hide it
+        if ($rootScope.detailActive) {
+            $rootScope.detailActive = false;
+            return;
+        }
+        
+        // Go back to the search page
         $location.path('/');
         $location.replace();
    };
