@@ -18,6 +18,16 @@
     color: black;
 }
 
+.green-font {
+    font-family: Rockwell;
+    color: #49a848;
+}
+
+.purple-font {
+    font-family: Rockwell;
+    color: #592b78;
+}
+
 .jqx-listitem-state-selected .black-font {
     color: white;
 }
