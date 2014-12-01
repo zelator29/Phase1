@@ -32,6 +32,21 @@ module.controller('searchController', function($scope, $location) {
     
     $scope.fromDate = new Date();
     $scope.toDate = moment().add(1, 'months').toDate();
+    
+    $scope.fromDateOpen = function($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
+        $scope.isFromDateOpened = true;
+        $scope.isToDateOpened = false;
+    };
+    
+    $scope.toDateOpen = function($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
+        $scope.isToDateOpened = true;
+        $scope.isFromDateOpened = false;
+    };
+    
     $scope.selectedCategory = '';
     $scope.selectedDistance = $scope.distances[0];
     $scope.location = '';

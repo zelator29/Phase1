@@ -1,4 +1,4 @@
-var module = angular.module('PGHCaresPhase1', ['ngRoute']);
+var module = angular.module('PGHCaresPhase1', ['ngRoute','ui.bootstrap']);
 
 module.config(['$routeProvider', function($routeProvider) {
     $routeProvider

@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <div id="searchTab" class="container-fluid">
     <div class="text-center title-wrapper">
-        <h3 class="black-font"><small>Fill in the fields below and hit</small></h3>
-        <h3 class="black-font"><small>'Search' to find opportunities</small></h3>
+        <h5 class="black-font" style="margin-top: 20px; margin-left: 40px; margin-right: 40px;">Fill in the fields below and hit 'Search' to find opportunities</h5>
     </div>
  
-    <div class="row">
-        <div class="input-group">
+    <div class="row col-xs-12">
+        <div class="input-group input-group-lg">
             <input type="text" data-ng-model="selectedCategory" class="form-control" 
                 placeholder="Select a Category" name="categoryField" id="categoryField" />
             <div class="input-group-btn">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                     <span class="glyphicon glyphicon-search"></span>
                 </button>
-                <ul role="menu" class="dropdown-menu dropdown-menu-right">
+                <ul role="menu" class="dropdown-menu scrollable-menu dropdown-menu-right">
                   <li ng-repeat="category in categories" ng-click="selectCategory(category)">
                       <a href="">{{category}}</a>
                   </li>
@@ -23,20 +22,40 @@
     </div>
 
     <div class="row col-xs-12 top-buffer">
-        <input type="text" ng-model="fromDate" class="form-control">
+        <div class="input-group input-group-lg">
+            <input id="startDateField" type="text" class="form-control"
+                   data-datepicker-popup='EEEE - MMMM dd, yyyy' data-ng-model="fromDate" 
+                   data-is-open="isFromDateOpened" data-close-text="Close" 
+                   datepicker-options='dateOptions'/> 
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default btn-large" data-ng-click="fromDateOpen($event)">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+            </span>
+        </div>
     </div>
 
     <div class="row col-xs-12 top-buffer">
-        <input type="text" ng-model="toDate" class="form-control">
+        <div class="input-group input-group-lg">
+            <input id="startDateField" type="text" class="form-control"
+                   data-datepicker-popup='EEEE - MMMM dd, yyyy' data-ng-model="toDate" 
+                   data-is-open="isToDateOpened" data-close-text="Close" 
+                   datepicker-options='dateOptions'/> 
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default btn-large" data-ng-click="toDateOpen($event)">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+            </span>
+        </div>
     </div>
 
     <div class="row top-buffer col-xs-12">
-        <input type="text" class="form-control" ng-model='location' 
-                                placeholder="Enter ZIP code or Location">
+        <input type="text" class="form-control input-lg" ng-model='location' 
+                                    placeholder="   Enter ZIP code or Location">
     </div>
-
+    
     <div class="row top-buffer col-xs-12">
-        <div class="input-group">
+        <div class="input-group input-group-lg">
             <input type="text" data-ng-model="selectedDistance" class="form-control"/> 
             <div class="input-group-btn">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">

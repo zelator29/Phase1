@@ -30,6 +30,10 @@ module.controller('listController', function($scope, $routeParams, $rootScope) {
         $(event.currentTarget).addClass('active');
         $scope.selected = opportunity;
     };
+    
+    $scope.dateOptions = {
+        showWeeks: 'false'
+    };
 });
 
 

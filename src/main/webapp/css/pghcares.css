@@ -66,13 +66,6 @@ h1, h2, h3 {
     margin-top: 5px;
     margin-bottom: 5px;
 }
-body {
-    /* background-image: url(pghcareslogo40.png); */
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center bottom;
-    background-size: 70% 50%;
-}
 
 .form-control {
     padding-left: 3px;
@@ -147,3 +140,8 @@ a.navbar-brand {
     //color: #592b78; // dark purple
 }
 
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
