@@ -22,6 +22,8 @@
                         >{{selected.description}}...</p>
             <p class='list-group-item-text black-font unselectable text-capitalize'
                ><strong>Categories: </strong>{{formatTags(selected)}}</p>
+            <p class='list-group-item-text black-font unselectable'
+               ><strong>Ages: </strong>{{formatAges()}}</p>
         </div>
         <div class='list-group-item'>
             <h4 class='list-group-item-heading purple-font unselectable'
@@ -32,7 +34,8 @@
         <div class='list-group-item'>
             <h4 class='list-group-item-heading purple-font unselectable'
                     ><strong>Times Available</strong></h4>
-            <p class='list-group-item-text black-font unselectable'>[TBD]</p>
+            <p class='list-group-item-text black-font unselectable'>
+                <strong>{{formatAvailablityDays(selected)}}</strong></p>
         </div>
         <div class='list-group-item'>
             <a href="{{selected.sponsoringOrganizationUrl}}">
@@ -45,8 +48,7 @@
     <!--
         latlong: "40.4974532,-80.0603445"
         skills[] skilledVolunteer
-        categoryTags
         minAge
-        availabilityDays
+    activityTypes
     -->
  </div>

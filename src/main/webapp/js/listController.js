@@ -3,9 +3,13 @@ module.controller('listController', function($scope, $http, $routeParams, $rootS
     var allForGood = 'http://api2.allforgood.org/api/volopps';
     var proxy = '';   //https://jsonp.nodejitsu.com/?url=';
     var url = proxy + allForGood + $routeParams.params;
+    
+    $scope.timePeriods = ['Morning', 'Afternoon', 'Evening'];
+    $scope.days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday',
+                    'Thursday', 'Friday', 'Saturday'];
 
     $scope.opportunities = '';
-    $scope.selected = null;
+    $rootScope.selected = null;
 
     $.ajax({
         'url': yql_url,
@@ -37,16 +41,47 @@ module.controller('listController', function($scope, $http, $routeParams, $rootS
         }
         return str.substring(0, str.length - 1);
     };
+    
+    $scope.formatAvailablityDays = function(opportunity) {
+        if (opportunity === null)
+            return 'null';
+        var str = '';
+        for (var i=0; i < opportunity.availabilityDays.length; i++) {
+            str += opportunity.availabilityDays[i];
+            str += ', ';
+        }            
+        return str.substring(0, str.length - 2);
+    };
 
+    $scope.formatAges = function() {
+        if ($rootScope.selected === null)
+            return '';
+        var str = $rootScope.selected.minAge;
+        if ($rootScope.selected.maximumAge == 200) {
+            str += ' and up'
+        }
+        else {
+            str += ' - ' + $rootScope.selected.maximumAge;
+        }
+        
+        if ($rootScope.selected.minAge < 18) {
+            str += ', guidance required under age ';
+            str += $rootScope.selected.minimumAgeNoAdult;
+        }
+        return str;
+    };
+    
     $scope.listClick = function(event, opportunity) {
-        if ($scope.selected === opportunity) {
+        if ($rootScope.selected === opportunity) {
             $rootScope.detailActive = true;
         }
         
         $('.list-group-item').removeClass('active');
         $(event.currentTarget).addClass('active');
-        $scope.selected = opportunity;
+        console.log(opportunity);
+        $rootScope.selected = opportunity;
     };
+    /* availabilityDays: Array[2]0: "Sunday Morning"1: "Sunday Afternoon"length: 2 */
     
     $scope.dateOptions = {
         showWeeks: 'false'
