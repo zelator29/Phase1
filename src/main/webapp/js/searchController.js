@@ -84,7 +84,7 @@ module.controller('searchController', function($scope, $location) {
             $scope.location = '15201';
         }
         
-        var basePath = "/list?key=hoc0016-mobile&type=all&merge=3&output=json-hoc";
+        var basePath = "/list?key=hoc0016-mobile&type=all&merge=3&output=json-hoc&num=100";
         var fullPath = basePath + '&vol_dist=' + distance;
         fullPath += '&vol_loc=' + $scope.location;
         $location.path(fullPath);

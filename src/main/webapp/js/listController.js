@@ -1,14 +1,31 @@
-module.controller('listController', function($scope, $routeParams, $rootScope) {
+module.controller('listController', function($scope, $http, $routeParams, $rootScope) {
+    var yql_url = 'https://query.yahooapis.com/v1/public/yql';
     var allForGood = 'http://api2.allforgood.org/api/volopps';
-    var url = allForGood + $routeParams.params;
+    var proxy = '';   //https://jsonp.nodejitsu.com/?url=';
+    var url = proxy + allForGood + $routeParams.params;
 
-    $scope.opportunities = testData.items;
+    $scope.opportunities = '';
     $scope.selected = null;
-    
+
+    $.ajax({
+        'url': yql_url,
+        'data': {
+            'q': 'SELECT * FROM json WHERE url="' + url + '"',
+            'format': 'json',
+            'jsonCompat': 'new'
+        },
+        'dataType': 'jsonp',
+        'success': function (response) {
+            console.log(response.query.results.json.items);
+            $scope.opportunities = response.query.results.json.items;
+            $scope.$apply();
+        }
+    });
+
     $scope.formatDate = function(date) {
         return moment(date).format('dddd MMMM Do, YYYY');
     };
-
+    
     $scope.formatTags = function(tags) {
         if (tags === null)
             return null;
