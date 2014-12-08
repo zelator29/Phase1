@@ -145,3 +145,16 @@ a.navbar-brand {
     max-height: 200px;
     overflow-x: hidden;
 }
+
+.splash-logo {
+    margin: 0 auto;
+}
+
+.btn-xlarge {
+    padding: 18px 18px;
+    font-size: 22px;
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+}

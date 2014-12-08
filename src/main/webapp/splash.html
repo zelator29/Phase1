@@ -1,35 +1,25 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css" rel="stylesheet">
-        <link href="css/pghcares.css" rel="stylesheet">
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    </head>
-    <body>
-        <div class="container">
-            <p style="margin-top: 100px;"></p>
-            <h1 id="title1" class="text-center blue-font">Pittsburgh Cares</h2>
-            <h2 id="title2" class="text-center black-font">Mobile Application</h2>
-            <h3 id="title3" class="text-center black-font">Coming soon!!</h2>
+<div class="container">
+    <p style="margin-top: 50px;"></p>
+    <h1 id="title1" class="text-center blue-font">Pittsburgh Cares</h2>
+    <h2 id="title2" class="text-center black-font">Mobile!</h2>
+    <div style="margin-top: 20px;">
+        <!-- will eventually turn into 'login' screen -->
+        <button class="btn btn-info btn-xlarge center-block"
+                ng-click='login()'>Begin!</button>
+    </div>
+    <div class="container-fluid text-center" style="margin: 20%">
+        <img id="logo" class="unselectable row  img-responsive" src="css/pghcareslogo.png" 
+                style="margin-bottom: 20px;" 
+                alt="Pittsburgh Cares">
+    </div>
+    <h5 class="text-center black-font">3505 Butler St.</h5>
+    <h5 class="text-center black-font">Pittsburgh, PA 15201</h5>
+    <h5 class="text-center black-font">(412) 471-2114</h5>
+    <h5 class="text-center black-font">&copy;2014-2015 - All Rights Reserved</h5>
 
-            <p style="margin-top: 100px;"></p>
-            <img id="logo" class="unselectable" src="css/pghcareslogo.png" 
-                        style="height: 30%; width: 30%; margin-bottom: 20px;" 
-                        alt="Pittsburgh Cares">
-            <h5 class="text-center black-font">3505 Butler St.</h5>
-            <h5 class="text-center black-font">Pittsburgh, PA 15201</h5>
-            <h5 class="text-center black-font">(412) 471-2114</h5>
-            <h5 class="text-center black-font">&copy;2014-2015 - All Rights Reserved</h5>
-        </div>
-
-        <script>
-            $('#title1').addClass('animated fadeInDown');
-            $('#title2').addClass('animated fadeInDown');
-            $('#title3').addClass('animated fadeInDownBig');
-            $('#logo').addClass('animated swing');
-        </script>
-    </body>
-</html>
+    <script>
+        $('#title1').addClass('animated fadeInDown');
+        $('#title2').addClass('animated fadeInDownBig');
+        $('#logo').addClass('animated swing');
+    </script>
+</div>

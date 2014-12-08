@@ -1,13 +1,8 @@
-module.controller('listController', function($scope, $http, $routeParams, $rootScope) {
+module.controller('listController', function($scope, $location, $routeParams, $rootScope) {
     var yql_url = 'https://query.yahooapis.com/v1/public/yql';
     var allForGood = 'http://api2.allforgood.org/api/volopps';
-    var proxy = '';   //https://jsonp.nodejitsu.com/?url=';
-    var url = proxy + allForGood + $routeParams.params;
+    var url = allForGood + $routeParams.params;
     
-    $scope.timePeriods = ['Morning', 'Afternoon', 'Evening'];
-    $scope.days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday',
-                    'Thursday', 'Friday', 'Saturday'];
-
     $scope.opportunities = '';
     $rootScope.selected = null;
 
@@ -20,55 +15,22 @@ module.controller('listController', function($scope, $http, $routeParams, $rootS
         },
         'dataType': 'jsonp',
         'success': function (response) {
-            console.log(response.query.results.json.items);
-            $scope.opportunities = response.query.results.json.items;
-            $scope.$apply();
+            if (response.query) {
+               $scope.opportunities = response.query.results.json.items;
+               $scope.$apply();
+            }
+            else {
+                alert('No results - try another search');
+
+                // Go back to the search page
+                $location.path('/search');
+                $location.replace();                
+            }
         }
     });
 
     $scope.formatDate = function(date) {
         return moment(date).format('dddd MMMM Do, YYYY');
-    };
-    
-    $scope.formatTags = function(tags) {
-        if (tags === null)
-            return null;
-        var str = '';
-        for (var i=0; i < tags.categoryTags.length; i++) {
-            var tag = tags.categoryTags[i];
-            str += tag.trim().replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-            str += ',';
-        }
-        return str.substring(0, str.length - 1);
-    };
-    
-    $scope.formatAvailablityDays = function(opportunity) {
-        if (opportunity === null)
-            return 'null';
-        var str = '';
-        for (var i=0; i < opportunity.availabilityDays.length; i++) {
-            str += opportunity.availabilityDays[i];
-            str += ', ';
-        }            
-        return str.substring(0, str.length - 2);
-    };
-
-    $scope.formatAges = function() {
-        if ($rootScope.selected === null)
-            return '';
-        var str = $rootScope.selected.minAge;
-        if ($rootScope.selected.maximumAge == 200) {
-            str += ' and up'
-        }
-        else {
-            str += ' - ' + $rootScope.selected.maximumAge;
-        }
-        
-        if ($rootScope.selected.minAge < 18) {
-            str += ', guidance required under age ';
-            str += $rootScope.selected.minimumAgeNoAdult;
-        }
-        return str;
     };
     
     $scope.listClick = function(event, opportunity) {
@@ -78,10 +40,8 @@ module.controller('listController', function($scope, $http, $routeParams, $rootS
         
         $('.list-group-item').removeClass('active');
         $(event.currentTarget).addClass('active');
-        console.log(opportunity);
         $rootScope.selected = opportunity;
     };
-    /* availabilityDays: Array[2]0: "Sunday Morning"1: "Sunday Afternoon"length: 2 */
     
     $scope.dateOptions = {
         showWeeks: 'false'

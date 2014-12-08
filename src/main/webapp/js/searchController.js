@@ -84,13 +84,21 @@ module.controller('searchController', function($scope, $location) {
             $scope.location = '15201';
         }
         
+        // This is the default way to get the basic query
         var basePath = "/list?key=hoc0016-mobile&type=all&merge=3&output=json-hoc&num=100";
         var fullPath = basePath + '&vol_dist=' + distance;
         fullPath += '&vol_loc=' + $scope.location;
+        
+        // Use 'NOW' as the default search target and 
+        fullPath += '&vol_startdate=' + moment($scope.fromDate).format('YYYY-MM-DD');
+        fullPath += '&vol_enddate=' + moment($scope.toDate).format('YYYY-MM-DD');
+        
+        if ($scope.selectedCategory !== null) {
+            fullPath += '&categorytags=' + $scope.selectedCategory;
+        }
         $location.path(fullPath);
         $location.replace();
     };
-
 });
 
 
