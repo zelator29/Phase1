@@ -93,8 +93,8 @@ module.controller('searchController', function($scope, $location) {
         fullPath += '&vol_startdate=' + moment($scope.fromDate).format('YYYY-MM-DD');
         fullPath += '&vol_enddate=' + moment($scope.toDate).format('YYYY-MM-DD');
         
-        if ($scope.selectedCategory !== null) {
-            fullPath += '&categorytags=' + $scope.selectedCategory;
+        if ($scope.selectedCategory) {
+            fullPath += '&q=categorytags:' + $scope.selectedCategory;
         }
         $location.path(fullPath);
         $location.replace();

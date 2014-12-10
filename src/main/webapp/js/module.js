@@ -33,23 +33,20 @@ module.controller('mainController', function($scope, $rootScope, $location){
         else if ($rootScope.currentController === 'listController') {
             $rootScope.showButton = true;
         }
-        else {
-            console.log('Route change: ');
-            console.log(next);
+        else if ($rootScope.currentController === 'detailsController') {
+            $rootScope.showButton = true;
         }
     });
     
     $rootScope.onBack = function() {
         var path = $location.path();
-        if (startsWith(path, '')) {}
-        console.log('Path: ' + path);
-
-        // If detail is showing, hide it
-        if ($rootScope.detailActive) {
-            $rootScope.detailActive = false;
-            return;
+        console.log('path:' + path);
+        if (startsWith(path, '/detail')) {
+            // Go back to the search page
+            $location.path('/list');
+            $location.replace();
         }
-        
+
         // Go back to the search page
         $location.path('/search');
         $location.replace();

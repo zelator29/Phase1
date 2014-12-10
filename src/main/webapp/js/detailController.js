@@ -19,8 +19,8 @@ module.controller('detailController', function($scope) {
     };
     
     $scope.formatAvailablityDays = function(opportunity) {
-        if (opportunity === null)
-            return 'null';
+        if (opportunity === null || opportunity.availabilityDays === null)
+            return 'Unknown';
         var str = '';
         for (var i=0; i < opportunity.availabilityDays.length; i++) {
             str += opportunity.availabilityDays[i];
@@ -29,22 +29,26 @@ module.controller('detailController', function($scope) {
         return str.substring(0, str.length - 2);
     };
 
-    $scope.formatAges = function() {
-        if ($rootScope.selected === null)
+    $scope.formatAges = function(opportunity) {
+        if (opportunity === null)
             return '';
-        var str = $rootScope.selected.minAge;
-        if ($rootScope.selected.maximumAge === 200) {
+        var str = opportunity.minAge;
+        if (opportunity.maximumAge === 200) {
             str += ' and up';
         }
         else {
-            str += ' - ' + $rootScope.selected.maximumAge;
+            str += ' - ' + opportunity.maximumAge;
         }
         
-        if ($rootScope.selected.minAge < 18) {
+        if (opportunity.minAge < 18) {
             str += ', guidance required under age ';
-            str += $rootScope.selected.minimumAgeNoAdult;
+            str += opportunity.minimumAgeNoAdult;
         }
         return str;
+    };
+
+    $scope.formatDate = function(date) {
+        return formatDate(date);
     };
 
 });

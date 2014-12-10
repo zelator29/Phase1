@@ -16,8 +16,9 @@ module.controller('listController', function($scope, $location, $routeParams, $r
         'dataType': 'jsonp',
         'success': function (response) {
             if (response.query) {
-               $scope.opportunities = response.query.results.json.items;
-               $scope.$apply();
+                console.log(response.query.results.json);
+                $scope.opportunities = response.query.results.json.items;
+                $scope.$apply();
             }
             else {
                 alert('No results - try another search');
@@ -30,12 +31,13 @@ module.controller('listController', function($scope, $location, $routeParams, $r
     });
 
     $scope.formatDate = function(date) {
-        return moment(date).format('dddd MMMM Do, YYYY');
+        return formatDate(date);
     };
     
     $scope.listClick = function(event, opportunity) {
         if ($rootScope.selected === opportunity) {
-            $rootScope.detailActive = true;
+            $location.path('/detail');
+            $location.replace();                
         }
         
         $('.list-group-item').removeClass('active');
