@@ -50,6 +50,36 @@ module.controller('detailController', function($scope) {
     $scope.formatDate = function(date) {
         return formatDate(date);
     };
-
+    
+    $scope.formatVolunteerCount = function(opportunity) {
+        if (!opportunity.volunteersNeeded || 
+                opportunity.volunteersNeeded === 0) {
+            return 'Unknown';
+        }
+        return opportunity.volunteersNeeded;
+    };
+    
+    $scope.formatTimesAvailable = function(opportunity) {
+        var startTime = ('0000' + opportunity.startTime).substr(-4, 4);
+        var endTime = ('0000' + opportunity.endTime).substr(-4, 4);
+        
+        if (startTime === '0000' && endTime === '2359') {
+            return 'Unspecified';
+        }
+        return formatTime(startTime) + ' - ' + formatTime(endTime);
+    };
+    
+    $scope.getButtonText = function(opportunity) {
+        if (opportunity.registerType === 'Express Interest')
+            return 'Express Interest';
+        return 'Sign Up';
+    };
+    
+    $scope.formatOrientation = function(opportunity) {
+        if (opportunity.orientationRequired)
+            return 'Yes';
+        return 'No';
+    };
+    
 });
 

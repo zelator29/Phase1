@@ -10,12 +10,22 @@
                ><strong>Categories: </strong>{{formatTags(selected)}}</p>
             <p class='list-group-item-text black-font unselectable'
                ><strong>Ages: </strong>{{formatAges(selected)}}</p>
+            <p class='list-group-item-text black-font unselectable'
+               ><strong>Volunteers needed: </strong>{{formatVolunteerCount(selected)}}</p>
+            <p class='list-group-item-text black-font unselectable'
+               ><strong>Orientation Required?: </strong>{{formatOrientation(selected)}}</p>
         </div>
         <div class='list-group-item'>
             <h4 class='list-group-item-heading purple-font unselectable'
                     ><strong>Dates Available</strong></h4>
             <p class='list-group-item-text black-font unselectable'
                     >{{formatDate(selected.startDate)}} - {{formatDate(selected.endDate)}}</p>
+        </div>
+        <div class='list-group-item'>
+            <h4 class='list-group-item-heading purple-font unselectable'
+                    ><strong>Activity Times</strong></h4>
+            <p class='list-group-item-text black-font unselectable'
+                    >{{formatTimesAvailable(selected)}}</p>
         </div>
         <div class='list-group-item'>
             <h4 class='list-group-item-heading purple-font unselectable'
@@ -26,15 +36,14 @@
         <div class='list-group-item'>
             <a href="{{selected.sponsoringOrganizationUrl}}">
                 <h4 class='list-group-item-heading purple-font unselectable'
-                       ><strong>{{selected.sponsoringOrganizationName}}</strong></h4></a>
-            <p class='list-group-item-text black-font unselectable'
-                       >{{selected.location_name}}</p>
-        </div>    </div>
-   
-    <!--
-        latlong: "40.4974532,-80.0603445"
-        skills[] skilledVolunteer
-        minAge
-    activityTypes
-    -->
+                    ><strong><u>{{selected.sponsoringOrganizationName}}</u></strong>
+                    <span class="blue-font" style="font-size: 12px;"
+                          >Click for more info</span>
+                </h4>
+            </a>
+        </div>
+        <div class='list-group-item'>
+            <button type="button" class="btn btn-primary">{{getButtonText(selected)}}</button>
+        </div>
+    </div>
  </div>
