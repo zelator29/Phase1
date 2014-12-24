@@ -17,6 +17,10 @@ function formatTime(time) {
         hours -= 12;
         indicator = 'PM';
     }
+    else if (hours === '00') {
+        hours = 12;
+        indicator = 'AM';
+    }
     var minutes = '00' + time.substring(2,2).substr(-2, 2);
     return hours + ':' + minutes + ' ' + indicator;
 }
