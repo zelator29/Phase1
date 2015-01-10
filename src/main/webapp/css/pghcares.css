@@ -54,7 +54,7 @@ input {
     width: 100%;
 }
 
-input[type="text"] {
+input[type="text"], label {
     font-family: Rockwell;
 }
 
@@ -161,4 +161,17 @@ a.navbar-brand {
 
 .dropdown-menu {
     font-size: 18px;
+}
+
+::-webkit-input-placeholder {
+    font-family: Rockwell;
+}
+:-moz-placeholder { /* older Firefox*/
+    font-family: Rockwell;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    font-family: Rockwell;
+}
+:-ms-input-placeholder {
+    font-family: Rockwell;
 }

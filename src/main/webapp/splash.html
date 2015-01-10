@@ -4,8 +4,8 @@
     <h2 id="title2" class="text-center black-font">Mobile!</h2>
     <div style="margin-top: 20px;">
         <!-- will eventually turn into 'login' screen -->
-        <button class="btn btn-info btn-xlarge center-block"
-                ng-click='login()'>Begin!</button>
+        <button class="btn btn-info btn-lg center-block" data-toggle="modal" 
+                data-target=".login-div">Begin!</button>
     </div>
     <div class="container-fluid text-center" style="margin: 10% 25%">
         <img id="logo" class="unselectable row  img-thumbnail" 
@@ -13,11 +13,34 @@
              src="css/pghcareslogo.png" 
              alt="Pittsburgh Cares">
     </div>
+    
     <h4 class="text-center black-font">3505 Butler St.</h4>
     <h4 class="text-center black-font">Pittsburgh, PA 15201</h4>
     <h4 class="text-center black-font">(412) 471-2114</h4>
     <h4 class="text-center black-font">&copy;2015 - All Rights Reserved</h4>
 
+    <div class="modal fade login-div"  role="dialog">
+        <div class="modal-dialog modal-lg"> 
+            <div class="modal-content container" style="margin: 40px 60px; padding: 20px 20px;">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="userId">User ID:</label>
+                        <input type="text" class="form-control" id="userIdField" placeholder="Enter user ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="passwordField">Password</label>
+                        <input type="password" class="form-control" id="passwordField" 
+                               placeholder="Password">
+                    </div>
+                    <div class="checkbox">
+                      <label><input type="checkbox" class="pull-left" value="">Save login information</label>
+                    </div>
+                    <button type="submit" class="btn btn-lg btn-info center-block">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
     <script>
         $('#title1').addClass('animated fadeInDown');
         $('#title2').addClass('animated fadeInDownBig');
