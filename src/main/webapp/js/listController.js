@@ -15,8 +15,7 @@ module.controller('listController', function($scope, $location, $routeParams, $r
         },
         'dataType': 'jsonp',
         'success': function (response) {
-            if (response.query) {
-                console.log(response.query.results.json);
+            if (response.query.results.json.items.length > 0) {
                 $scope.opportunities = response.query.results.json.items;
                 $scope.$apply();
             }

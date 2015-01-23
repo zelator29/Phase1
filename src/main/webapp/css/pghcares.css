@@ -50,11 +50,21 @@ a.ng-binding {
     color: red;
 }
 
-input {
-    width: 100%;
+label {
+    font-family: Rockwell;
+    
 }
 
-input[type="text"], label {
+input[type="checkbox"] {
+  width:30px;
+  height:30px;
+  background:white;
+  border-radius:5px;
+  border:2px solid #555;
+}
+
+input[type="text"] {
+    width: 100%;
     font-family: Rockwell;
 }
 

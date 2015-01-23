@@ -15,8 +15,10 @@ module.config(['$routeProvider', function($routeProvider) {
             controller: 'detailController'
         })
         .when('/', {
-            templateUrl: "splash.html",
-            controller: 'splashController'
+            templateUrl: "search.html",
+            controller: 'searchController'
+//            templateUrl: "splash.html",
+//            controller: 'splashController'
         })
         .otherwise({redirectTo: '/'});
 }]);
