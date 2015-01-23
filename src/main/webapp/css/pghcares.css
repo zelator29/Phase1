@@ -56,10 +56,10 @@ label {
 }
 
 input[type="checkbox"] {
-  width:30px;
-  height:30px;
+  width:18px;
+  height:18px;
   background:white;
-  border-radius:5px;
+  border-radius:4px;
   border:2px solid #555;
 }
 
@@ -184,4 +184,19 @@ a.navbar-brand {
 }
 :-ms-input-placeholder {
     font-family: Rockwell;
+}
+
+#overlay {
+    position: fixed;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background: transparent url(spinner.gif) center center no-repeat;
+    z-index: 999;
+    background-size: 10%;
 }

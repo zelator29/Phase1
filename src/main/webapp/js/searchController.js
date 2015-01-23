@@ -1,6 +1,5 @@
 
-
-module.controller('searchController', function($scope, $location) {
+module.controller('searchController', function($scope, $rootScope, $location) {
     $scope.categories = [
             'Adult Education', 'Animals', 'Arts & Culture',
             'Children & Youth Education', 'Civic & Community',
@@ -79,6 +78,8 @@ module.controller('searchController', function($scope, $location) {
     $scope.go = function () {
         var index = $scope.distances.indexOf($scope.selectedDistance); 
         var distance = $scope.distanceValues[index];
+        
+        $rootScope.showSpinner = true;
         
         if (!$scope.location){
             $scope.location = '15201';

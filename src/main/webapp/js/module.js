@@ -15,10 +15,8 @@ module.config(['$routeProvider', function($routeProvider) {
             controller: 'detailController'
         })
         .when('/', {
-            templateUrl: "search.html",
-            controller: 'searchController'
-//            templateUrl: "splash.html",
-//            controller: 'splashController'
+            templateUrl: "splash.html",
+            controller: 'splashController'
         })
         .otherwise({redirectTo: '/'});
 }]);
@@ -26,6 +24,8 @@ module.config(['$routeProvider', function($routeProvider) {
 module.controller('mainController', function($scope, $rootScope, $location){
     $rootScope.showButton = false;
     $rootScope.currentController = '';
+    $rootScope.showSpinner = false;
+
     
     $scope.$on('$routeChangeSuccess', function(event, next, current) { 
         $rootScope.currentController = next.$$route.controller;

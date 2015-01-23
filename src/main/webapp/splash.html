@@ -19,7 +19,7 @@
     <h4 class="text-center black-font">(412) 471-2114</h4>
     <h4 class="text-center black-font">&copy;2015 - All Rights Reserved</h4>
 
-    <div class="modal fade login-div"  role="dialog">
+    <div class="modal fade login-div"  id="login-modal" role="dialog">
         <div class="modal-dialog modal-sm"> 
             <div class="modal-content container" style="margin: 40px 60px; padding: 20px 20px;">
                 <form role="form">
@@ -33,10 +33,11 @@
                                placeholder="Password">
                     </div>
                     <div class="">
-                      <label for="saveLogin">Save login information? <input type="checkbox" class="" 
+                      <label for="saveLogin">Save login information? <input type="checkbox" 
                                     id="saveLogin"></label>
                     </div>
-                    <button type="submit" class="btn btn-lg btn-info center-block">Login</button>
+                    <button type="submit" data-ng-click='login()' 
+                                class="btn btn-lg btn-info center-block">Login</button>
                 </form>
             </div>
         </div>

@@ -5,7 +5,7 @@ module.controller('detailController', function($scope) {
     
     $scope.latitude = '';
     $scope.longitude = '';
-    
+   
     $scope.formatTags = function(tags) {
         if (tags === null)
             return null;
