@@ -9,7 +9,20 @@ module.controller('searchController', function($scope, $rootScope, $location) {
             'Internships & Employment', 'Justice & Legal Services',
             'Immigrant & Refugee Services', 'Schools', 'Senior Services',
             'Sports & Recreation', 'Technology',
-            'Veterans & Military Families'];
+            'Veterans & Military Families'
+        ];
+        
+    $scope.keywords = [
+        'adult+education', 'animals', 'arts+culture',
+        'children+youth+education', 'civic+community',
+        'disaster+emergency', 'environment', 
+        'faith', 'health+wellness', 'family+services',
+        'hunger+homelessness', 'international+service',
+        'internships+employment', 'justice+legal+services',
+        'immigrant+refugee','schools', 'senior+services',
+        'sports+recreation', 'technology', 'veterans+military'
+        
+    ];
 
     $scope.selectCategory = function(category) {
         $scope.selectedCategory = category;
@@ -95,9 +108,11 @@ module.controller('searchController', function($scope, $rootScope, $location) {
         fullPath += '&vol_enddate=' + moment($scope.toDate).format('YYYY-MM-DD');
         
         if ($scope.selectedCategory) {
-            fullPath += '&q=categorytags:' + $scope.selectedCategory;
+            var index = $scope.categories.indexOf($scope.selectedCategory);
+            fullPath += '&q=' + $scope.keywords[index];
         }
         $location.path(fullPath);
+        console.log(fullPath);
         $location.replace();
     };
 });

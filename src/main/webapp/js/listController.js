@@ -15,12 +15,25 @@ module.controller('listController', function($scope, $location, $routeParams, $r
         },
         'dataType': 'jsonp',
         'success': function (response) {
-            $rootScope.showSpinner = false;
+            if (response.error)
+            {
+                $rootScope.showSpinner = false;
+                $scope.$apply();
+                alert('Error: ' + response.error.description);
+
+                // Go back to the search page
+                $location.path('/search');
+                $location.replace();            
+                return;
+            }
             if (response.query.results.json.items.length > 0) {
                 $scope.opportunities = response.query.results.json.items;
+                $rootScope.showSpinner = false;
                 $scope.$apply();
             }
             else {
+                $rootScope.showSpinner = false;
+                $scope.$apply();
                 alert('No results - try another search');
 
                 // Go back to the search page
