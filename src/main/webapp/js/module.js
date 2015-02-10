@@ -25,6 +25,7 @@ module.controller('mainController', function($scope, $rootScope, $location){
     $rootScope.showButton = false;
     $rootScope.currentController = '';
     $rootScope.showSpinner = false;
+    $rootScope.history = [];
 
     
     $scope.$on('$routeChangeSuccess', function(event, next, current) { 
@@ -45,12 +46,18 @@ module.controller('mainController', function($scope, $rootScope, $location){
         console.log('path:' + path);
         if (startsWith(path, '/detail')) {
             // Go back to the search page
-            $location.path('/list');
+            // $location.path('/list');
+            // $location.replace();
+
+        var prevUrl = $rootScope.history.length > 0 ? $rootScope.history.splice(-2)[0] : "/";
+        $location.path(prevUrl);
+        }
+
+        else {
+            // Go back to the search page
+            $location.path('/search');
             $location.replace();
         }
 
-        // Go back to the search page
-        $location.path('/search');
-        $location.replace();
    };
 });

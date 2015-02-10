@@ -49,6 +49,7 @@ module.controller('listController', function($scope, $location, $routeParams, $r
     
     $scope.listClick = function(event, opportunity) {
         if ($rootScope.selected === opportunity) {
+            $rootScope.history.push($location.$$path);
             $location.path('/detail');
             $location.replace();                
         }
